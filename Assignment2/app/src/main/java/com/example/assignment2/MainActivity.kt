@@ -15,37 +15,42 @@ import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment2.ui.theme.Assignment2Theme
 
+class StudentListActivity : AppCompatActivity() {
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var studentAdapter: StudentAdapter
 
-class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Assignment2Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContentView(R.layout.activity_student_list)
+
+        recyclerView = findViewById(R.id.recyclerView)
+
+        setupRecyclerView()
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+            startActivity(Intent(this, NewStudentActivity::class.java))
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    private fun setupRecyclerView() {
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        studentAdapter = StudentAdapter(
+            StudentRepository.students,
+            onItemClick = { openStudentDetails(it) },
+            onCheckboxClick = { toggleStudentCheck(it) }
+        )
+        recyclerView.adapter = studentAdapter
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Assignment2Theme {
-        Greeting("Android")
+    private fun openStudentDetails(position: Int) {
+        val intent = Intent(this, StudentDetailsActivity::class.java)
+        intent.putExtra("studentIndex", position)
+        startActivity(intent)
+    }
+
+    private fun toggleStudentCheck(position: Int) {
+        val student = StudentRepository.students[position]
+        student.isChecked = !student.isChecked
+        studentAdapter.notifyItemChanged(position)
     }
 }
