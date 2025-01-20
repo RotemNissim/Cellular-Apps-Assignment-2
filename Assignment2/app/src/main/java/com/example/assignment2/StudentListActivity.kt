@@ -51,7 +51,9 @@ class StudentListActivity : AppCompatActivity() {
     private fun toggleStudentCheck(position: Int) {
         val student = StudentRepository.students[position]
         student.isChecked = !student.isChecked
-        studentAdapter.notifyItemChanged(position)
+        recyclerView.post {
+            studentAdapter.notifyItemChanged(position)
+        }
     }
 
     override fun onResume() {
