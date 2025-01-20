@@ -43,8 +43,6 @@ class StudentListActivity : AppCompatActivity() {
         student.isChecked = !student.isChecked
         studentAdapter.notifyItemChanged(position)
     }
-<<<<<<< Updated upstream
-=======
 
     override fun onResume() {
         super.onResume()
@@ -52,6 +50,4 @@ class StudentListActivity : AppCompatActivity() {
         studentAdapter.updateData(updatedStudents)
     }
 
-
->>>>>>> Stashed changes
 }
