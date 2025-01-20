@@ -7,10 +7,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assignment2.data.StudentRepository
 import com.example.assignment2.models.Student
+import android.view.MenuItem
 
 class NewStudentActivity : AppCompatActivity() {
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_student)
         findViewById<Button>(R.id.saveButton).setOnClickListener {
@@ -26,3 +38,5 @@ class NewStudentActivity : AppCompatActivity() {
         }
     }
 }
+
+
