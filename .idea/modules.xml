@@ -7,6 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Assignment2.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Assignment2.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Assignment2.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Assignment2.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Assignment2.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Assignment2.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Cellular-Apps-Assignment-2.Assignment2.app.unitTest.iml" />
     </modules>
   </component>
 </project>
