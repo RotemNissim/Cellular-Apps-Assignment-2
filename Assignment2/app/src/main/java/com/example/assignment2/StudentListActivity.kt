@@ -49,5 +49,5 @@ class StudentListActivity : AppCompatActivity() {
         val updatedStudents = StudentRepository.getAllStudents()
         studentAdapter.updateData(updatedStudents)
     }
-    
+
 }
