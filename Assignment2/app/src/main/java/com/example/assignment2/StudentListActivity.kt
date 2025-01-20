@@ -19,8 +19,14 @@ class StudentListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_student_list)
 
         recyclerView = findViewById(R.id.recyclerView)
+        val addButton: FloatingActionButton = findViewById(R.id.fab)
 
         setupRecyclerView()
+
+        addButton.setOnClickListener {
+            val intent = Intent(this, NewStudentActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupRecyclerView() {
