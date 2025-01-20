@@ -8,21 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment2.data.StudentRepository
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
+
 class StudentListActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var studentAdapter: StudentAdapter
-    private lateinit var addStudentButton: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_list)
 
         recyclerView = findViewById(R.id.recyclerView)
-        addStudentButton = findViewById(R.id.fab)
 
         setupRecyclerView()
-        setupAddStudentButton()
     }
 
     private fun setupRecyclerView() {
@@ -36,13 +34,6 @@ class StudentListActivity : AppCompatActivity() {
             onCheckboxClick = { position -> toggleStudentCheck(position) })
 
         recyclerView.adapter = studentAdapter
-    }
-
-    private fun setupAddStudentButton() {
-        addStudentButton.setOnClickListener {
-            val intent = Intent(this, NewStudentActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun openStudentDetails(position: Int) {
@@ -59,11 +50,8 @@ class StudentListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        studentAdapter.notifyDataSetChanged()
+        val updatedStudents = StudentRepository.getAllStudents()
+        studentAdapter.updateData(updatedStudents)
     }
 
-
 }
-
-
-
