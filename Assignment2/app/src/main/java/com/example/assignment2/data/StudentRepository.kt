@@ -18,13 +18,7 @@ object StudentRepository {
             students[index] = updatedStudent
         }
     }
-
-    fun deleteStudent(index: Int) {
-        if (index in students.indices) {
-            students.removeAt(index)
-        }
-    }
-
+    
     init {
         students.add(Student("1", "Gal Miron"))
         students.add(Student("2", "Rotem Nissim"))

@@ -17,6 +17,20 @@ class EditStudentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_student)
 
+        findViewById<Button>(R.id.deleteButton).setOnClickListener {
+        studentIndex = intent.getIntExtra("studentIndex", -1)
+            if (studentIndex != -1) {
+                // Remove the student from the repository or list
+                StudentRepository.students.removeAt(studentIndex)
+
+                // Create an intent to return to StudentListActivity
+                val intent = Intent(this, StudentListActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP // This ensures the activity stack is cleared
+                startActivity(intent) // Start StudentListActivity with the updated list
+                finish() // Finish the current activity
+            }
+        }
+
         studentIndex = intent.getIntExtra("studentIndex", -1)
         val student = StudentRepository.students[studentIndex]
 
@@ -33,10 +47,6 @@ class EditStudentActivity : AppCompatActivity() {
             finish()
         }
 
-        findViewById<Button>(R.id.deleteButton).setOnClickListener {
-            StudentRepository.deleteStudent(studentIndex)
-            setResult(RESULT_OK) // Notify success
-            finish()
-        }
+
     }
 }
