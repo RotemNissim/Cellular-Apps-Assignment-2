@@ -43,4 +43,15 @@ class StudentListActivity : AppCompatActivity() {
         student.isChecked = !student.isChecked
         studentAdapter.notifyItemChanged(position)
     }
+<<<<<<< Updated upstream
+=======
+
+    override fun onResume() {
+        super.onResume()
+        val updatedStudents = StudentRepository.getAllStudents()
+        studentAdapter.updateData(updatedStudents)
+    }
+
+
+>>>>>>> Stashed changes
 }
