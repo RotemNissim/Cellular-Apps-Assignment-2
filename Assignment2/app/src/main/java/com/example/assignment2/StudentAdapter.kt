@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment2.models.Student
 
 class StudentAdapter(
-    private val students: List<Student>,
+    private var students: List<Student>,
     private val onItemClick: (Int) -> Unit,
     private val onCheckboxClick: (Int) -> Unit
 ) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
@@ -35,6 +35,11 @@ class StudentAdapter(
 
         holder.itemView.setOnClickListener { onItemClick(position) }
         holder.studentCheckBox.setOnCheckedChangeListener { _, _ -> onCheckboxClick(position) }
+    }
+
+    fun updateData(newStudents: List<Student>) {
+        students = newStudents
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = students.size
