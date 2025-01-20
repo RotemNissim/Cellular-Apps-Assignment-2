@@ -5,6 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment2.data.StudentRepository
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 
 class StudentListActivity : AppCompatActivity() {
 
@@ -25,7 +28,8 @@ class StudentListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Initialize adapter with sample data
-        studentAdapter = StudentAdapter(StudentRepository.students,
+        studentAdapter = StudentAdapter(
+            StudentRepository.students,
             onItemClick = { position -> openStudentDetails(position) },
             onCheckboxClick = { position -> toggleStudentCheck(position) })
 
