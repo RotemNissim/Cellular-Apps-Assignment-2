@@ -2,27 +2,22 @@ package com.example.assignment2
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class StudentListActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var studentAdapter: StudentAdapter
-    private lateinit var addStudentButton: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_list)
 
         recyclerView = findViewById(R.id.recyclerView)
-        addStudentButton = findViewById(R.id.fab)
 
         setupRecyclerView()
-        setupAddStudentButton()
     }
 
     private fun setupRecyclerView() {
@@ -37,13 +32,6 @@ class StudentListActivity : AppCompatActivity() {
         recyclerView.adapter = studentAdapter
     }
 
-    private fun setupAddStudentButton() {
-        addStudentButton.setOnClickListener {
-            val intent = Intent(this, NewStudentActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
     private fun openStudentDetails(position: Int) {
         val intent = Intent(this, StudentDetailsActivity::class.java)
         intent.putExtra("studentIndex", position)
@@ -55,14 +43,15 @@ class StudentListActivity : AppCompatActivity() {
         student.isChecked = !student.isChecked
         studentAdapter.notifyItemChanged(position)
     }
+<<<<<<< Updated upstream
+=======
 
     override fun onResume() {
         super.onResume()
-        studentAdapter.notifyDataSetChanged()
+        val updatedStudents = StudentRepository.getAllStudents()
+        studentAdapter.updateData(updatedStudents)
     }
 
 
+>>>>>>> Stashed changes
 }
-
-
-
