@@ -1,3 +1,5 @@
+package com.example.assignment2.data
+
 import com.example.assignment2.models.Student
 
 object StudentRepository {
