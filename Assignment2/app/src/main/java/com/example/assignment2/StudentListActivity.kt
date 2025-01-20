@@ -52,7 +52,6 @@ class StudentListActivity : AppCompatActivity() {
         val student = StudentRepository.students[position]
         student.isChecked = !student.isChecked
         recyclerView.post {
-            studentAdapter.notifyItemChanged(position)
         }
     }
 
